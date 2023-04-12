@@ -1,0 +1,31 @@
+.load {
+    position: fixed;
+    top: 0;
+}
+.buttons {
+    display: flex;
+    justify-content: space-around;
+    .button {
+        min-width: 50px;
+    }
+}
+.task {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+@media screen and (max-width: 600px) {
+    .task {
+        display: block;
+        text-align: center;
+    }
+    .buttons {
+        
+        .button {
+            grid-area: "button";
+            display: flex;
+            justify-content: space-around;
+        }
+    }
+}
