@@ -5,8 +5,9 @@ import "./assets/css/styles.scss";
 import "./App.scss";
 import EditTodo from "./components/EditTodo/EditTodo";
 import { NavLink } from "react-router-dom";
-import Uncompleted from "./components/Uncopleted/Uncompleted";
+import Uncompleted from "./components/Uncompleted/Uncompleted";
 import Completed from "./components/Completed/Completed";
+import Success from "./components/Success/Success";
 
 const App = () => {
   return (
@@ -15,14 +16,14 @@ const App = () => {
         <div className="col s12 navbar">
           <ul id="tabs-swipe-demo" className="tabs">
             <li className="col s4 m4 l2 offset-l3 tab-li">
-              <NavLink to="/list" className="#test-swipe-1 black-text nav-link">
+              <NavLink to="list" className="#test-swipe-1 black-text nav-link">
                 All ToDo Lists
               </NavLink>
             </li>
 
             <li className="col s4 m4 l2 tab-li">
               <NavLink
-                to="/uncompleted"
+                to="uncompleted"
                 className="#test-swipe-2 black-text nav-link"
               >
                 Uncompleted
@@ -31,7 +32,7 @@ const App = () => {
 
             <li className="col s4 m4 l2 tab-li">
               <NavLink
-                to="/completed"
+                to="completed"
                 className="#test-swipe-3 black-text nav-link"
               >
                 Completed
@@ -66,6 +67,7 @@ const App = () => {
             }
           ></Route>
           <Route path={`/edit/:id`} element={<EditTodo />}></Route>
+          <Route path="success" element={<Success />}></Route>
 
           <Route path="*" element={<Navigate to="list" />} />
         </Routes>

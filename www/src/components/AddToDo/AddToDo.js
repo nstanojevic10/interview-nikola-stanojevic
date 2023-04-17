@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import styles from "./AddToDo.scss";
 
-const AddToDo = ({ onAddedNew }) => {
+const AddToDo = ({ getAllTodos }) => {
   const [loading, setLoading] = useState(false);
   const [formIsValid, setFormIsValid] = useState(false);
   const [newToDo, setNewToDo] = useState("");
@@ -24,7 +24,7 @@ const AddToDo = ({ onAddedNew }) => {
       })
       .then((data) => {
         setNewToDo("");
-        onAddedNew(data);
+        getAllTodos();
         setLoading(false);
       })
       .catch((error) => {
@@ -37,6 +37,7 @@ const AddToDo = ({ onAddedNew }) => {
     if (newToDo) {
       setFormIsValid(true);
       onAddNew();
+      setFormIsValid(false);
     } else {
       setFormIsValid(false);
     }
@@ -76,7 +77,7 @@ const AddToDo = ({ onAddedNew }) => {
             />
           </div>
 
-          <div className="text-center mt-4">
+          <div>
             <button
               className="btn btn-add"
               onClick={() => {

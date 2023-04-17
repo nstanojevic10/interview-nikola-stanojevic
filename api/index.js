@@ -20,12 +20,12 @@ app.get("/api/todos", (req, res) => {
 });
 
 app.get("/api/todos/uncompleted", (req, res) => {
-  const uncompleted = todos.filter(el => el.mark === true)
+  const uncompleted = todos.filter((el) => el.mark === true);
   res.json(uncompleted);
 });
 
 app.get("/api/todos/completed", (req, res) => {
-  const completed = todos.filter(el => el.mark === false)
+  const completed = todos.filter((el) => el.mark === false);
   res.json(completed);
 });
 
@@ -57,7 +57,7 @@ app.put("/api/todos/:id", (req, res) => {
 app.post("/api/todos", (req, res) => {
   const newTodo = req.body;
   newTodo.mark = true;
-  const lastId = todos[todos.length - 1].id;
+  const lastId = todos.length === 0 ? 1 : todos[todos.length - 1].id;
   newTodo.id = lastId + 1;
   todos.push(newTodo);
   res.json(newTodo);
